@@ -28,6 +28,9 @@ router.get('/add', ensureAuthenticated, (req, res) => {
 // edit idea
 router.get('/edit/:id', ensureAuthenticated,  (req, res) => {
 	Idea.findOne({
+		_id: req.params.id
+	})
+	.then(idea => {
 		if (idea.user != req.user.id) {
 			req.flash('error_msg', 'No Authorized');
 			res.redirect('/ideas');
@@ -36,12 +39,6 @@ router.get('/edit/:id', ensureAuthenticated,  (req, res) => {
 				idea: idea
 			})
 		}
-		_id: req.params.id
-	})
-	.then(idea => {
-		res.render('ideas/edit',{
-			idea: idea
-		});
 	});
 	
 });

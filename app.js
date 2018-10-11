@@ -18,9 +18,10 @@ const users = require('./routes/users');
 
 //passport config
 require('./config/passport')(passport);
+const db = require('./config/database');
 
 //connect to mongoose
-mongoose.connect('mongodb://127.0.0.1:27018/blogg-dev', { 
+mongoose.connect(db.mongoURI, { 
 	useNewUrlParser: true 
 })
 .then(() => console.log('MongoDB Connected...'))
@@ -91,7 +92,7 @@ app.use('/ideas', ideas);
 
 
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
 	console.log(`server started on port ${port}`)

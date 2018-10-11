@@ -65,3 +65,6 @@
 2018-10-11T19:31:56.446+0300 I NETWORK  [conn9] end connection 127.0.0.1:47624 (0 connections now open)
 2018-10-11T19:31:57.550+0300 I NETWORK  [listener] connection accepted from 127.0.0.1:47674 #10 (1 connection now open)
 2018-10-11T19:31:57.562+0300 I NETWORK  [conn10] received client metadata from 127.0.0.1:47674 conn10: { driver: { name: "nodejs", version: "3.1.6" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.15.0-36-generic" }, platform: "Node.js v8.10.0, LE, mongodb-core: 3.1.5" }
+2018-10-11T21:21:14.661+0300 I NETWORK  [conn10] end connection 127.0.0.1:47674 (0 connections now open)
+2018-10-11T21:23:58.660+0300 I NETWORK  [listener] connection accepted from 127.0.0.1:51626 #11 (1 connection now open)
+2018-10-11T21:23:58.671+0300 I NETWORK  [conn11] received client metadata from 127.0.0.1:51626 conn11: { driver: { name: "nodejs", version: "3.1.6" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.15.0-36-generic" }, platform: "Node.js v8.10.0, LE, mongodb-core: 3.1.5" }
