@@ -1,0 +1,49 @@
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten] MongoDB starting : pid=28709 port=27018 dbpath=/var/www/html/data/db 64-bit host=ted-MS-7A15
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten] db version v4.0.3
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten] git version: 7ea530946fa7880364d88c8d8b6026bbc9ffa48c
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.0h  27 Mar 2018
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten] modules: none
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten] build environment:
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten]     distmod: ubuntu1804
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten]     distarch: x86_64
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-10-10T01:20:22.109+0300 I CONTROL  [initandlisten] options: { net: { port: 27018 }, storage: { dbPath: "/var/www/html/data/db" }, systemLog: { destination: "file", path: "/var/www/html/log/mongod.log" } }
+2018-10-10T01:20:22.109+0300 I STORAGE  [initandlisten] Detected data files in /var/www/html/data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-10-10T01:20:22.109+0300 I STORAGE  [initandlisten] 
+2018-10-10T01:20:22.109+0300 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2018-10-10T01:20:22.109+0300 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2018-10-10T01:20:22.109+0300 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=7489M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-10-10T01:20:22.875+0300 I STORAGE  [initandlisten] WiredTiger message [1539123622:875760][28709:0x7f12e1c59a00], txn-recover: Main recovery loop: starting at 4/6272
+2018-10-10T01:20:22.929+0300 I STORAGE  [initandlisten] WiredTiger message [1539123622:929440][28709:0x7f12e1c59a00], txn-recover: Recovering log 4 through 5
+2018-10-10T01:20:23.001+0300 I STORAGE  [initandlisten] WiredTiger message [1539123623:1959][28709:0x7f12e1c59a00], txn-recover: Recovering log 5 through 5
+2018-10-10T01:20:23.056+0300 I STORAGE  [initandlisten] WiredTiger message [1539123623:56518][28709:0x7f12e1c59a00], txn-recover: Set global recovery timestamp: 0
+2018-10-10T01:20:23.369+0300 I RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] 
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] 
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server. 
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP 
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2018-10-10T01:20:23.512+0300 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2018-10-10T01:20:23.513+0300 I CONTROL  [initandlisten] 
+2018-10-10T01:20:23.513+0300 W CONTROL  [initandlisten] 
+2018-10-10T01:20:23.513+0300 W CONTROL  [initandlisten] 
+2018-10-10T01:20:23.513+0300 I CONTROL  [initandlisten] 
+2018-10-10T01:20:23.596+0300 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/var/www/html/data/db/diagnostic.data'
+2018-10-10T01:20:23.599+0300 I NETWORK  [initandlisten] waiting for connections on port 27018
+2018-10-10T01:20:26.129+0300 I NETWORK  [listener] connection accepted from 127.0.0.1:58008 #1 (1 connection now open)
+2018-10-10T01:20:26.142+0300 I NETWORK  [conn1] received client metadata from 127.0.0.1:58008 conn1: { driver: { name: "nodejs", version: "3.1.6" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.15.0-36-generic" }, platform: "Node.js v8.10.0, LE, mongodb-core: 3.1.5" }
+2018-10-10T01:33:07.599+0300 I CONTROL  [signalProcessingThread] got signal 2 (Interrupt), will terminate after current cmd ends
+2018-10-10T01:33:07.599+0300 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2018-10-10T01:33:07.599+0300 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27018.sock
+2018-10-10T01:33:07.600+0300 I CONTROL  [signalProcessingThread] Shutting down free monitoring
+2018-10-10T01:33:07.600+0300 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2018-10-10T01:33:07.608+0300 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2018-10-10T01:33:07.763+0300 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2018-10-10T01:33:07.764+0300 I CONTROL  [signalProcessingThread] now exiting
+2018-10-10T01:33:07.764+0300 I CONTROL  [signalProcessingThread] shutting down with code:0
