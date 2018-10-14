@@ -7,21 +7,24 @@ const flash           = require('connect-flash');
 const session         = require('express-session');
 const bodyParser      = require('body-parser');
 const passport        = require('passport');
+const cookieParser    = require('cookie-parser');
 
 
 const app = express();
+app.use(express.static(path.join(__dirname, 'pub')));
 
-app.use(express.static(path.join(__dirname, 'public')));
+
 //routers
 const ideas = require('./routes/ideas');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
 
 //passport config
 require('./config/passport')(passport);
 const db = require('./config/database');
 
 //connect to mongoose
-mongoose.connect(db.mongoURI, { 
+mongoose.connect('mongodb://ted:7576395hfcb@ds125723.mlab.com:25723/blogg_prod', { 
 	useNewUrlParser: true 
 })
 .then(() => console.log('MongoDB Connected...'))
@@ -39,8 +42,8 @@ app.use(methodOverride('_method'));
 //session middleware
 app.use(session({
 	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
+	resave: false,
+	saveUninitialized: false
 }))
 
 //passport middleware
@@ -81,15 +84,11 @@ app.get('/about', (req, res) => {
 	});
 });
 
-
+//Load routes
 app.use('/users', users);
-
-
 app.use('/ideas', ideas);
-
-
-
-
+app.use('/auth', auth);
+app.use(cookieParser());
 
 
 const port = process.env.PORT || 5000;

@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+	
 	<div class="container">
 		<a class="navbar-brand" href="/">Blogg</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,8 +14,11 @@
 					<a class="nav-link" href="/about">About</a>
 				</li>
 			</ul>
-			<ul class="navbar-nav ml-auto">
+			<ul class="navbar-nav">
 				{{#if user}}
+				<li class="nav-item">
+					<a class="nav-link" href="/users/logout">Logout</a>
+				</li>
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Ideas
@@ -23,9 +27,6 @@
 						<a href="/ideas" class="dropdown-item">Idea</a>
 						<a href="/ideas/add" class="dropdown-item">Add Idea</a>
 					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/users/logout">Logout</a>
 				</li>
 				{{else}}
 				<li class="nav-item">
@@ -36,6 +37,9 @@
 				</li>
 				{{/if}}
 			</ul>
+			{{#if user}}
+				<a class="navbar-brand ml-auto" href="/">Hello {{user.name}} <i class="fa fa-user"></i> </a>
+			{{/if}}
 		</div>
 	</div>
 </nav>
