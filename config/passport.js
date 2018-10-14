@@ -3,6 +3,7 @@ const OAuth2Strategy  = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const keys = require('./keys');
+const db = require('./database');
 
 // Load user model
 require('../models/User');
@@ -39,7 +40,7 @@ module.exports = function(passport){
       tokenURL: 'https://www.googleapis.com/oauth2/v3/token',
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: 'http://localhost.ua:5000/auth/google/callback',
+      callbackURL: db.callbackURL,
       proxy: true
     },
       function(accessToken, refreshToken, profile, done) {
