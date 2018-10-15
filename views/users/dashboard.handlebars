@@ -29,7 +29,7 @@
 				<tbody>
 					<tr>
 						<td><a href="ideas/{{id}}">{{title}}</a></td>
-						<td>{{date}}</td>
+						<td>{{formatDate date 'MMM Do YY'}}</td>
 						<td>{{status}}</td>
 						<td><a class="btn btn-dark btn-block mb-2" href="/dashboard/edit/{{id}}">Edit</a>
 							<form method="POST" action="/dashboard/{{id}}?_method=DELETE">
