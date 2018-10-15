@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 // Cerate Schema
 
 const UserSchema = new Schema({
+	googleID: {
+		type: String
+	},
 	name: {
 		type: String,
 		required: true
@@ -11,6 +14,12 @@ const UserSchema = new Schema({
 	email: {
 		type: String,
 		required: true
+	},
+	firstName: {
+		type: String
+	},
+	lastNme: {
+		type: String
 	},
 	image: {
 		type: String

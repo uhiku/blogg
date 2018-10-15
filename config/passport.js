@@ -8,7 +8,6 @@ const db = require('./database');
 // Load users models
 require('../models/User');
 const User = mongoose.model('users');
-require('../models/googleUser');
 
 module.exports = function(passport){
 
