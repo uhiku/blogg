@@ -21,9 +21,11 @@
 	<script src="js/all.js"></script>
 	<script src="https://cdn.ckeditor.com/4.4.5.1/standard/ckeditor.js"></script>
 	<script>
-		CKEDITOR.replace( 'details', {
-			allowedContent: 'wysiwygarea,  basicstyles, link'
-		});
+		if (document.querySelector('.txt')) {
+			CKEDITOR.replace( 'details', {
+				allowedContent: 'wysiwygarea,  basicstyles, link'
+			});
+		} else {}
 	</script>
 </body>
 </html>

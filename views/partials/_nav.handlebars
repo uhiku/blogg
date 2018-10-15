@@ -10,19 +10,14 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/about">About</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/public">Public Stories</a>
+				</li>
 			</ul>
 			<ul class="navbar-nav">
 				{{#if user}}
 				<li class="nav-item">
 					<a class="nav-link" href="/users/logout">Logout</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Ideas
-					</a>
-					<div class="dropdown-menu">
-						<a href="/" class="dropdown-item disabled">Public Ideas</a>
-					</div>
 				</li>
 				{{else}}
 				<li class="nav-item">

@@ -1,0 +1,28 @@
+{{#if ideas}}
+<div class="row public-stories">
+	<div class="col-sm-12"><h1 class="h1">Public Ideas</h1></div>
+	{{#each ideas}}
+	<div class="col-sm-4">
+		<div class="card-deck mb-4">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title text-center">{{title}}</h5>
+					<p class="card-text">{{{stripTags (truncate details 100)}}}</p>
+				</div>
+				{{#if user}}
+				{{{publicToPrivate user.id ../user.id id}}}
+				{{/if}}
+				<div class="card-footer">
+					<small class="text-muted">Posted on: {{formatDate date 'MMM Do YY'}}</small>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Posted by: {{user.name}}</small>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+</div>
+{{else}}
+<p>No public stories</p>
+{{/if}}

@@ -11,3 +11,9 @@
 	opacity: 0.5;
 	text-decoration: none;
 }
+.public-stories .card-text {
+	min-height: 72px;
+}
+.public-stories .card {
+	min-height: 272px;
+}

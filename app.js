@@ -19,6 +19,13 @@ const ideas = require('./routes/ideas');
 const users = require('./routes/users');
 const auth  = require('./routes/auth');
 const dash  = require('./routes/dashboard');
+const pub   = require('./routes/public');
+const {
+	truncate,
+	stripTags,
+	formatDate,
+	publicToPrivate
+} = require('./helpers/html')
 
 //passport config
 require('./config/passport')(passport);
@@ -34,7 +41,14 @@ mongoose.connect('mongodb://ted:7576395hfcb@ds125723.mlab.com:25723/blogg_prod',
 
 
 //handlebars middleware
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({
+	helpers: {
+		truncate: truncate,
+		stripTags: stripTags,
+		formatDate: formatDate,
+		publicToPrivate: publicToPrivate
+	},
+	defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 //override methods
@@ -90,6 +104,7 @@ app.use('/users', users);
 app.use('/ideas', ideas);
 app.use('/auth', auth);
 app.use('/dashboard', dash);
+app.use('/public', pub);
 app.use(cookieParser());
 
 

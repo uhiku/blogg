@@ -17,13 +17,27 @@ const IdeaSchema = new Schema({
 		required: true
 	},
 	user: {
-		type: String,
-		required: true
+		type: Schema.Types.ObjectId,
+		ref: 'users'
 	},
 	status: {
 		type: String,
 		required: true
 	},
+	comments: [{
+		commentBody: {
+			type: String,
+			required: true
+		},
+		commentDate: {
+			type: Date,
+			default: Date.now
+		},
+		commentUser: {
+			type: Schema.Types.ObjectId,
+			ref: 'users'
+		}
+	}],
 	isComments: {
 		type: Boolean,
 		required: true
