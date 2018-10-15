@@ -12,12 +12,6 @@ const UserSchema = new Schema({
 		type: String,
 		required: true
 	},
-	firstName: {
-		type: String
-	},
-	lastNme: {
-		type: String
-	},
 	image: {
 		type: String
 	},

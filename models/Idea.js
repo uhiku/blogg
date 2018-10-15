@@ -12,8 +12,20 @@ const IdeaSchema = new Schema({
 		type: String,
 		required: true
 	},
+	email: {
+		type: String,
+		required: true
+	},
 	user: {
 		type: String,
+		required: true
+	},
+	status: {
+		type: String,
+		required: true
+	},
+	isComments: {
+		type: Boolean,
 		required: true
 	},
 	date: {

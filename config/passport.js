@@ -5,9 +5,10 @@ const bcrypt = require('bcryptjs');
 const keys = require('./keys');
 const db = require('./database');
 
-// Load user model
+// Load users models
 require('../models/User');
 const User = mongoose.model('users');
+require('../models/googleUser');
 
 module.exports = function(passport){
 
@@ -43,7 +44,8 @@ module.exports = function(passport){
       callbackURL: db.callbackURL,
       proxy: true
     },
-      function(accessToken, refreshToken, profile, done) {
+      function(accessToken, refreshToken, profile, done, req, res) {
+        //console.log(profile);
         const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
         const newUser = {
           googleID: profile.id,

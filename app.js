@@ -17,7 +17,8 @@ app.use(express.static(path.join(__dirname, 'pub')));
 //routers
 const ideas = require('./routes/ideas');
 const users = require('./routes/users');
-const auth = require('./routes/auth');
+const auth  = require('./routes/auth');
+const dash  = require('./routes/dashboard');
 
 //passport config
 require('./config/passport')(passport);
@@ -88,6 +89,7 @@ app.get('/about', (req, res) => {
 app.use('/users', users);
 app.use('/ideas', ideas);
 app.use('/auth', auth);
+app.use('/dashboard', dash);
 app.use(cookieParser());
 
 

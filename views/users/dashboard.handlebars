@@ -1,0 +1,49 @@
+{{#if user}}
+<div id="dashboard">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="card" style="width: 18rem;">
+				{{#if user.image}}
+				<img class="card-img-top img-thumbnail" src="{{user.image}}" alt="Card image cap">
+				{{else}}
+				<i class="fa fa-user mx-auto mt-3" style="font-size: 100px"></i>
+				{{/if}}
+				<div class="card-body">
+					<h5 class="card-title">Welcome {{user.name}}</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			{{> _addform}}
+			<h5 class="h5">Your ideas:</h5>
+			{{#each ideas}}
+			<table class="table table-striped">
+				<thead class="thead-blue">
+					<tr>
+						<th scope="col">Title</th>
+						<th scope="col">Date</th>
+						<th scope="col">Status</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href="ideas/{{id}}">{{title}}</a></td>
+						<td>{{date}}</td>
+						<td>{{status}}</td>
+						<td><a class="btn btn-dark btn-block mb-2" href="/dashboard/edit/{{id}}">Edit</a>
+							<form method="POST" action="/dashboard/{{id}}?_method=DELETE">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="submit" class="btn btn-danger btn-block" value="Delete">
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			{{else}}
+			<p>No ideas listed</p>
+			{{/each}}
+		</div>
+	</div>
+</div>
+{{/if}}
