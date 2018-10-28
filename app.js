@@ -20,6 +20,7 @@ const users = require('./routes/users');
 const auth  = require('./routes/auth');
 const dash  = require('./routes/dashboard');
 const pub   = require('./routes/public');
+const profile   = require('./routes/profile');
 const {
 	truncate,
 	stripTags,
@@ -32,8 +33,9 @@ require('./config/passport')(passport);
 const db = require('./config/database');
 
 //connect to mongoose
-mongoose.connect('mongodb://ted:7576395hfcb@ds125723.mlab.com:25723/blogg_prod', { 
-	useNewUrlParser: true 
+mongoose.set('useFindAndModify', false); 
+mongoose.connect('mongodb://127.0.0.1:27017/blogg-dev', { 
+	useNewUrlParser: true
 })
 .then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err));
@@ -105,6 +107,7 @@ app.use('/ideas', ideas);
 app.use('/auth', auth);
 app.use('/dashboard', dash);
 app.use('/public', pub);
+app.use('/profile', profile);
 app.use(cookieParser());
 
 

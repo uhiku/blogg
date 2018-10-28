@@ -12,10 +12,6 @@ const IdeaSchema = new Schema({
 		type: String,
 		required: true
 	},
-	email: {
-		type: String,
-		required: true
-	},
 	user: {
 		type: Schema.Types.ObjectId,
 		ref: 'users'
@@ -24,10 +20,19 @@ const IdeaSchema = new Schema({
 		type: String,
 		required: true
 	},
+	name: {
+		type: String
+	},
+	avatar: {
+		type: String
+	},
 	comments: [{
 		commentBody: {
 			type: String,
 			required: true
+		},
+		commentName: {
+			type: String
 		},
 		commentDate: {
 			type: Date,
@@ -36,6 +41,9 @@ const IdeaSchema = new Schema({
 		commentUser: {
 			type: Schema.Types.ObjectId,
 			ref: 'users'
+		},
+		avatar: {
+			type: String
 		}
 	}],
 	isComments: {
@@ -45,7 +53,15 @@ const IdeaSchema = new Schema({
 	date: {
 		type: Date,
 		default: Date.now
-	}
+	},
+	likes: [
+		{
+			user: {
+				type: Schema.Types.ObjectId,
+				ref: 'users'
+			}
+		}
+	]
 });
 
-mongoose.model('ideas', IdeaSchema);
+module.exports = Idea = mongoose.model('ideas', IdeaSchema);

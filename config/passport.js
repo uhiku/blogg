@@ -1,5 +1,7 @@
 const LocalStrategy  = require('passport-local').Strategy;
 const OAuth2Strategy  = require('passport-google-oauth20').Strategy;
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const keys = require('./keys');
@@ -9,29 +11,33 @@ const db = require('./database');
 require('../models/User');
 const User = mongoose.model('users');
 
+const opts = {};
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = keys.secretOrKey;
+
 module.exports = function(passport){
 
   //local strategy
   passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
     // Match user
-    User.findOne({
-      email:email
-    }).then(user => {
-      if(!user){
-        return done(null, false, {message: 'No User Found'});
-    } 
+  //   User.findOne({
+  //     email:email
+  //   }).then(user => {
+  //     if(!user){
+  //       return done(null, false, {message: 'No User Found'});
+  //   } 
 
-      // Match password
-      bcrypt.compare(password, user.password, (err, isMatch) => {
-        if(err) throw err;
-        if(isMatch){
-          return done(null, user);
-        } else {
-          return done(null, false, {message: 'Password Incorrect'});
-        }
-      })
-    })
-  }));
+  //     // Match password
+  //     bcrypt.compare(password, user.password, (err, isMatch) => {
+  //       if(err) throw err;
+  //       if(isMatch){
+  //         return done(null, user);
+  //       } else {
+  //         return done(null, false, {message: 'Password Incorrect'});
+  //       }
+  //     })
+  //   })
+   }));
 
   //Google strategy
   passport.use(
@@ -68,7 +74,19 @@ module.exports = function(passport){
           }
         })
       }
-    ));
+  ));
+
+  //JWT Strategy
+  passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
+    User.findById(jwt_payload.id)
+      .then(user => {
+        if (user) {
+          return done(null, user)
+        } else {
+          return done(null, false)
+        }
+      })
+  }))
 
   passport.serializeUser(function(user, done) {
     done(null, user.id);
